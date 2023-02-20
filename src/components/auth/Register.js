@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import "./Login.css"
 
 export const Register = (props) =>{ 
     const [user, setUser] = useState({
@@ -53,25 +52,28 @@ export const Register = (props) =>{
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Your Plant Page</h1>
-                <fieldset>
+        <main style={{ textAlign: "center" }} className="grid content-center font-['merienda'] text-[25px] h-screen bg-cover bg-center bg-[url('https://res.cloudinary.com/dggkcaqhs/image/upload/v1675447051/Capstone/homemade_za9vbj.png')]">
+            <section className="bg-[#B8BBB5]/75  min-h-[70%]">
+            <form className="p-8" onSubmit={handleRegister}>
+                <div className="text-[85px] font-['akronim']">Please Register For Your Plant Page</div>
+                <fieldset className="border-none">
                     <label htmlFor="name"> Full Name </label>
                     <input onChange={updateUser}
-                           type="text" id="name" className="form-control"
+                    className="hover:bg-[#E4B5A6] font-['merienda'] text-[20px]"
+                           type="text" id="name" 
                            placeholder="Enter your name" required autoFocus />
                 </fieldset>
-                <fieldset>
+                <fieldset className="border-none">
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateUser}
-                        type="email" id="email" className="form-control"
+                        type="email" id="email" className="hover:bg-[#E4B5A6] font-['merienda'] text-[20px]"
                         placeholder="Email address" required />
                 </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
+                <fieldset className="border-none ">
+                    <button type="submit" className="hover:bg-[#E4B5A6] font-['merienda'] text-[15px] rounded p-2 mt-5 mx-2"> Register </button>
                 </fieldset>
             </form>
+            </section>
         </main>
     )
 }

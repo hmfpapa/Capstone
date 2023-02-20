@@ -35,9 +35,9 @@ const fertilizerChecked = ()=>{
             imageUrl: newUpdate.imageUrl,
             watered: isWatered,
             fertilized: isFertilized,
-            fertilizerId: fertilizerType,
+            fertilizerId: (isFertilized? fertilizerType: "0"),
             date: new Date().toLocaleDateString(),
-            notes: newUpdate.notes
+            notes: (newUpdate.notes? newUpdate.notes : "")
         }
 
         return fetch('http://localhost:8088/plantEvents', {
@@ -65,14 +65,16 @@ const fertilizerChecked = ()=>{
 
 
     return (
-        <form className="newUpdateForm">
-            <h2 className="newUpdateForm__title">What's Happening?</h2>
-            <fieldset>
-                <div className="form-group">
+    <section className="h-screen  bg-cover bg-center font-['merienda'] text-[20px] text-[#23321C] bg-[url('https://res.cloudinary.com/dggkcaqhs/image/upload/v1675544321/Capstone/Copy_of_homemade_1_uqgxou.png')]">
+       <section className=" p-10  ">
+        <form className="bg-[#B8BBB5]/75 m-10">
+            <div className="text-[65px] font-['akronim']">What's Happening?</div>
+            <fieldset className="border-none ">
+                <div className="">
                     <label htmlFor="imageUrl">Image URL:</label>
                     <input required autoFocus
                         type="text"
-                        className="form-control"
+                        className="hover:bg-[#E4B5A6] font-['merienda'] text-[15px]"
                         placeholder="image.jpeg"
                         value={newUpdate.imageUrl}
                         onChange={
@@ -83,51 +85,51 @@ const fertilizerChecked = ()=>{
                             }
                         } />
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
+            </fieldset >
+            <fieldset className="border-none">
+                <div className="">
                     <label htmlFor="watered"
-                        className="watered-checkbox"
+                        className=""
                         type="checkbox"
                         value={newUpdate.watered}
                         onChange={
                             () => {
                                 waterChecked()
                             }}>
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checked:[#E4B5A6]"  />
                         Watered</label>
                 </div>
             </fieldset>
-            <fieldset>
-                <div className="form-group">
+            <fieldset className="border-none">
+                <div className="">
                     <label htmlFor="fertilized"
-                        className="fertilized-checkbox"
+                        className=""
                         type="checkbox"
                         value={newUpdate.fertilized}
                         onChange={
                             () => {
                                 fertilizerChecked()
                             }}>
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checked:bg-[#E4B5A6]" />
                         Fertilized</label>
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="border-none">
                 {  isFertilized?  <div className="form-group">
                     <label htmlFor="fertilizerId"
-                        className="dropdown"
+                        className="dropdown "
                         type="dropdown"
                     >Select Type:</label>
-                    <select
+                    <select className="font-['merienda'] hover:bg-[#E4B5A6] text-[15px] "
                     onChange={
                         (event) => {
                           setFertilizerType(event.target.value)
                         }
                     }>
-                        <option value={0}> Select A Fertilizer </option>
+                        <option value={0} > Select A Fertilizer </option>
                         {fertilizers.map((type) => {
                             return (<option key={type.id}
-                                className="form-control"
+                                
                                 value={type.id}
                                  >
                                 {type.name}
@@ -135,16 +137,21 @@ const fertilizerChecked = ()=>{
                             )
                         })}
                     </select>
+                    <button
+                onClick={() => navigate(`/addFertilizer`)}
+                className="hover:bg-[#E4B5A6] font-['merienda'] text-[15px] rounded p-1 my-2 mx-10" >
+                Add a Fertilizer
+            </button>
                 </div>
             : ''}
 
             </fieldset>
-            <fieldset>
+            <fieldset className="border-none">
                 <div className="form-group">
                     <label htmlFor="notes">Notes:</label>
                     <input required autoFocus
                         type="text"
-                        className="form-control"
+                        className="hover:bg-[#E4B5A6] font-['merienda'] text-[15px]"
                         value={newUpdate.notes}
                         onChange={
                             (event) => {
@@ -157,9 +164,11 @@ const fertilizerChecked = ()=>{
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="hover:bg-[#E4B5A6] font-['merienda'] text-[15px] rounded p-2 my-5 mx-10" >
                 Save Plant Update
             </button>
         </form>
+        </section>
+        </section>
     )
                     }

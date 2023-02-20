@@ -49,15 +49,18 @@ export const PlantForm = () => {
     }, [])
 
     return (
-        <form className="newPlantForm">
-            <h2 className="newPlantForm__title">Add Your Newest Plant BB!</h2>
-            <fieldset>
-                <div className="form-group">
+        <section className="font-['merienda'] grid content-center  text-[20px] text-[#23321C] h-screen bg-cover bg-[url('https://res.cloudinary.com/dggkcaqhs/image/upload/v1675544321/Capstone/Copy_of_homemade_1_uqgxou.png')]">
+        <div className=" ">
+        <form className="  p-10 min-h-full  ">
+            <section className="bg-[#B8BBB5]/90  m-10 min-h-0%]">
+            <div className="text-[65px]  font-['akronim']">Add Your Newest Plant BB!</div>
+            <fieldset className="border-none">
+                <div className="max-w-[70%]  ">
                     <label htmlFor="name">Name:</label>
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="hover:bg-[#E4B5A6] font-['merienda'] text-[15px]"
                         placeholder="New Plant's Name"
                         value={newPlant.name}
                         onChange={
@@ -69,12 +72,12 @@ export const PlantForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
-                <div className="form-group">
+            <fieldset className="border-none">
+                <div className="max-w-[50%]">
                     <label htmlFor="imageUrl">Image URL:</label>
                     <input required autoFocus
                         type="text"
-                        className="form-control"
+                        className="hover:bg-[#E4B5A6] font-['merienda'] text-[15px]"
                         placeholder="image.jpeg"
                         value={newPlant.imageUrl}
                         onChange={
@@ -86,13 +89,13 @@ export const PlantForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
-                <div className="form-group">
+            <fieldset className="border-none">
+                <div className="max-w-[50%] ">
                     <label htmlFor="typeId"
                         className="dropdown"
                         type="dropdown"
                     >Select Type:</label>
-                    <select
+                    <select  className="font-['merienda'] hover:bg-[#E4B5A6] text-[15px]"
                     onChange={
                         (event) => {
                             const copy = { ...newPlant }
@@ -100,11 +103,12 @@ export const PlantForm = () => {
                             update(copy)
                         }
                     } >
+                        <option value={0}> Select A Type </option>
                         {types.map((type) => {
                             return (<option 
                                 key={type.id}
                                 required autoFocus
-                                className="form-control"
+                               
                                 value={type.id}
                                 >
                                 {type.name}
@@ -114,12 +118,12 @@ export const PlantForm = () => {
                     </select>
                 </div>
             </fieldset>
-            <fieldset>
-                <div className="form-group">
+            <fieldset className="border-none">
+                <div className="max-w-[50%]">
                     <label htmlFor="acquired">Date Acquired:</label>
                     <input required autoFocus
                         type="date"
-                        className="form-control"
+                        className="hover:bg-[#E4B5A6]  font-['merienda'] text-[15px]"
                         value={newPlant.acquired}
                         onChange={
                             (event) => {
@@ -132,9 +136,12 @@ export const PlantForm = () => {
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="hover:bg-[#E4B5A6]  font-['merienda'] text-[15px] rounded p-2 mx-10 my-3">
                 Save New Plant
             </button>
+            </section>
         </form>
+        </div>
+        </section>
     )
 }
