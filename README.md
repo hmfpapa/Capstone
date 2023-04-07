@@ -10,15 +10,16 @@ For us "plant people" it can become difficult to keep up with plant care. When w
 <br>
 This app seeks to solve these problems with an easy to use interface that allows users to add plants, track watering, fertilizing, and changes to the plant's individual care all while creating a timeline of photos to provide perspective on growth. Users can add new plants along with pictures, filter by plant type, create updates for individual plants, and view their collection through the app. 
 
-<H2>Demo</H2>
-View all plants, view plants by type, view plant details
-![]
+<h2>Demo</h2>
 
-Add a plant type
-![]
+View all plants, view plants by type, view plant details
+![](https://github.com/hmfpapa/Capstone/blob/main/Views.gif)
+
+Add a plant 
+![](https://github.com/hmfpapa/Capstone/blob/main/AddPlant.gif)
 
 Add a plant update
-![]
+![](https://github.com/hmfpapa/Capstone/blob/main/AddUpdate.gif)
 
 <H2>Project Goals</H2>
 Learn and practice Tailwind CSS <br/>
